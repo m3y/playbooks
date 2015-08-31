@@ -1,0 +1,22 @@
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  sudo: no
+
+  tasks:
+    - name: cask インストール
+      homebrew_tap: tap=caskroomcask state=present
+      homebrew: name=brew-cask state=latest
+
+    - name: java インストール
+      homebrew_cask: name=java
+
+    - name: scala/sbt インストール
+      homebrew: name={{ item }}
+      with_items:
+        - scala
+        - sbt
+
+    - name: Intellij IDEA インストール
+      homebrew_cask: name=intellij-idea-ce
+
