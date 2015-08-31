@@ -4,19 +4,23 @@
   sudo: no
 
   tasks:
-    - name: cask インストール
-      homebrew_tap: tap=caskroomcask state=present
+    - name: homebrew をアップデート
+      homebrew: update_homebrew=yes
+
+    - name: tap の追加
+      homebrew_tap: name=caskroom/cask state=present
+
+    - name: brew-cask のインストール
       homebrew: name=brew-cask state=latest
 
-    - name: java インストール
-      homebrew_cask: name=java
+    - name: java のインストール
+      homebrew_cask: name=java state=present
 
-    - name: scala/sbt インストール
-      homebrew: name={{ item }}
+    - name: scala/sbt のインストール
+      homebrew: name={{ item }} state=latest
       with_items:
         - scala
         - sbt
 
-    - name: Intellij IDEA インストール
-      homebrew_cask: name=intellij-idea-ce
-
+    - name: Intellij IDEA のインストール
+      homebrew_cask: name=intellij-idea-ce state=present
