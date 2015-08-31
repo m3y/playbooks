@@ -1,0 +1,14 @@
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  sudo: no
+
+  tasks:
+    - name: homebrew をアップデート
+      homebrew: update_homebrew=yes
+
+    - name: ghc/cabal-install のインストール
+      homebrew: name={{ item }} state=latest
+      with_items:
+        - ghc
+        - cabal-install
