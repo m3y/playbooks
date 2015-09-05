@@ -12,6 +12,7 @@ $ HOMEBREW_CAKS_OPTS="--appdir=/Applications" ansible-playbook -i hosts -vv scal
 
 ## 一覧
 - scala(osx)
+- java(osx)
 - haskell(osx)
 - haskell(ubuntu)
 - php(vagrant on ubuntu)
