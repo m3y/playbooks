@@ -21,6 +21,7 @@
       with_items:
         - maven
         - gradle
+        - graphviz
 
     - name: Intellij IDEA のインストール
       homebrew_cask: name=intellij-idea-ce state=present
