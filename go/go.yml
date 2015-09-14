@@ -12,12 +12,9 @@
       with_items:
           - go
 
-    - name: go 設定ファイル作成
+    - name: go 環境設定
       file:
         src: "{{ ansible_env.PWD }}/go.conf"
         dest: ~/.etc/go.conf
         state: link
         force: yes
-
-    - name: go 設定の反映
-      shell: source ~/.etc/go.conf
