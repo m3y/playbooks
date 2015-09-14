@@ -1,0 +1,24 @@
+- hosts: localhost
+  connection: local
+  gather_facts: yes
+  sudo: no
+
+  tasks:
+    - name: homebrew をアップデート
+      homebrew: update_homebrew=yes
+
+    - name: python のインストール
+      homebrew: name={{ item }} state=latest
+      with_items:
+        - python
+        - python3
+
+    - name: virtualenv/virtualenvwrapper のインストール
+      shell: pip install virtualenv virtualenvwrapper
+
+    - name: virtualenv 設定
+      file:
+        src: "{{ ansible_env.PWD }}/python.conf"
+        dest: ~/.etc/python.conf
+        state: link
+        force: yes
