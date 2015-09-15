@@ -8,9 +8,7 @@
       homebrew: update_homebrew=yes
 
     - name: go のインストール
-      homebrew: name={{ item }} state=latest
-      with_items:
-          - go
+      homebrew: name=go state=latest install_options=cross-compile-common
 
     - name: go 環境設定
       file:
