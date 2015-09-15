@@ -15,6 +15,7 @@
       shell: pip install virtualenv virtualenvwrapper
 
     - name: virtualenv 設定
+      sudo: no
       file:
         src: "{{ ansible_env.PWD }}/python.conf"
         dest: ~/.etc/python.conf
