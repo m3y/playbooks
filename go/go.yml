@@ -11,8 +11,6 @@
       homebrew: name=go state=latest install_options=cross-compile-common
 
     - name: go 環境設定
-      file:
+      copy:
         src: "{{ ansible_env.PWD }}/go.conf"
-        dest: ~/.etc/go.conf
-        state: link
-        force: yes
+        dest: "~/.etc/go.conf"
