@@ -16,8 +16,6 @@
 
     - name: virtualenv 設定
       sudo: no
-      file:
+      copy:
         src: "{{ ansible_env.PWD }}/python.conf"
-        dest: ~/.etc/python.conf
-        state: link
-        force: yes
+        dest: "~/.etc/python.conf"
