@@ -1,8 +1,10 @@
+---
 - hosts: localhost
   connection: local
   gather_facts: no
-  sudo: no
-
+  become: no
+  environment:
+    HOMEBREW_CASK_OPTS: "--appdir=/Applications"
   tasks:
     - name: homebrew をアップデート
       homebrew: update_homebrew=yes

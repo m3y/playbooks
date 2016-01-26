@@ -1,12 +1,13 @@
+---
 - hosts: localhost
   connection: local
   gather_facts: no
-  sudo: yes
+  become: yes
 
   tasks:
     - name: ghc/cabal-installのインストール
-      apt: 
-        name={{ item }} 
+      apt:
+        name={{ item }}
         update_cache=yes
       with_items:
         - ghc
