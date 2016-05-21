@@ -2,12 +2,12 @@
 
 ## 実行
 ```
-$ HOMEBREW_CAKS_OPTS="--appdir=/Applications" ansible-playbook -i INVENTORY_FILE -vv YML_FILE
+$ ansible-playbook -i INVENTORY_FILE -vv YML_FILE
 ```
 
 例)
 ```
-$ HOMEBREW_CAKS_OPTS="--appdir=/Applications" ansible-playbook -i hosts -vv scala.yml 
+$ ansible-playbook -i hosts -vv scala.yml
 ```
 
 ## 一覧
@@ -17,4 +17,4 @@ $ HOMEBREW_CAKS_OPTS="--appdir=/Applications" ansible-playbook -i hosts -vv scal
 - haskell(ubuntu)
 - php(vagrant on ubuntu)
 - go(osx)
-- python(ubuntu)
+- pyenv(osx)
