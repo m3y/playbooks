@@ -1,7 +1,7 @@
 ---
 - hosts: localhost
   connection: local
-  gather_facts: no
+  gather_facts: yes
   become: no
 
   tasks:
@@ -14,11 +14,7 @@
     - name: pyenv-virtualenv のインストール
       homebrew: name=pyenv-virtualenv state=latest
 
-    - name: 初期化処理の追加確認
-      command: grep pyenv ~/.bash_profile
-      register: init_confirm
-      failed_when: init_confirm.rc < 0 or 1 < init_confirm.rc
-
-    - name: 初期化処理の追加
-      shell: cat python/pyenv.profile >> ~/.bash_profile
-      when: init_confirm.rc == 1
+    - name: pyenv 環境設定
+      copy:
+        src: "{{ ansible_env.PWD }}/python/pyenv.conf"
+        dest: "~/.etc/pyenv.conf"
