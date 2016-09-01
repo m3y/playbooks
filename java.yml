@@ -12,9 +12,6 @@
     - name: tap の追加
       homebrew_tap: name=caskroom/cask state=present
 
-    - name: brew-cask のインストール
-      homebrew: name=brew-cask state=latest
-
     - name: java のインストール
       homebrew_cask: name=java state=present
 
@@ -24,6 +21,3 @@
         - maven
         - gradle
         - graphviz
-
-    - name: Intellij IDEA のインストール
-      homebrew_cask: name=intellij-idea-ce state=present
